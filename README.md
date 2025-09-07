@@ -203,4 +203,3 @@ npx hardhat run scripts/deploy.cjs --network sepolia
 
 This project is licensed under the **MIT License**.
 
-```
