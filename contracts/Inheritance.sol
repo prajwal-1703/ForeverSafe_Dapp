@@ -1,0 +1,48 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Inheritance {
+    uint public lastVisited;
+    uint public duration; // inactivity duration (seconds)
+    address public owner;
+    address public recipient;
+
+    constructor() {
+        owner = msg.sender;
+        lastVisited = block.timestamp;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not owner");
+        _;
+    }
+
+    modifier onlyRecipient() {
+        require(msg.sender == recipient, "Not recipient");
+        _;
+    }
+
+    /// @notice Owner sets or updates recipient and inactivity duration
+    function setWill(address payable _recipient, uint _duration) public onlyOwner {
+        recipient = _recipient;
+        duration = _duration;
+        lastVisited = block.timestamp;
+    }
+
+    /// @notice Owner deposits ETH into contract
+    function deposit() public payable onlyOwner {
+        require(recipient != address(0), "Set recipient first");
+        lastVisited = block.timestamp;
+    }
+
+    /// @notice Owner pings to prove activity
+    function ping() public onlyOwner {
+        lastVisited = block.timestamp;
+    }
+
+    /// @notice Recipient claims inheritance after inactivity
+    function claim() external onlyRecipient {
+        require(block.timestamp > lastVisited + duration, "Owner still active");
+        payable(recipient).transfer(address(this).balance);
+    }
+}
