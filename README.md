@@ -129,7 +129,7 @@ npx hardhat run scripts/deploy.cjs --network sepolia
 5. **Run frontend:**
 
 ```bash
-npm start
+npm run dev
 ```
 
 * Open [http://localhost:3000](http://localhost:3000) to use the DApp.
