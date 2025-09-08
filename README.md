@@ -186,8 +186,8 @@ npx hardhat run scripts/deploy.cjs --network sepolia
 ## 🧑‍💻 Author
 
 * Project Name: **ForeverSafe**
-* Developer: Prajwal (You can add your GitHub link here)
-* Blockchain Mentor: Ganesh Deshpande (if applicable)
+* Developer: Prajwal <href = https://github.com/prajwal-1703>
+
 
 ---
 
