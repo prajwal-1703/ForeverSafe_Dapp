@@ -186,7 +186,7 @@ npx hardhat run scripts/deploy.cjs --network sepolia
 ## 🧑‍💻 Author
 
 * Project Name: **ForeverSafe**
-* Developer: Prajwal <href = https://github.com/prajwal-1703>
+* Developer: Prajwal (https://github.com/prajwal-1703)
 
 
 ---
